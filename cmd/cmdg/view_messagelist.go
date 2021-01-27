@@ -23,7 +23,7 @@ const (
 	scrollLimit = 5
 
 	messageListViewHelp = `?, F1              — Help
-enter              — Open message
+o, enter           — Open message
 space, x           — Mark message and advance
 X                  — Mark message and step up
 e                  — Archive marked messages
@@ -702,7 +702,7 @@ func (mv *MessageView) Run(ctx context.Context) error {
 			switch key {
 			case "?", input.F1:
 				help(messageListViewHelp, mv.keys)
-			case input.Enter:
+			case "o", input.Enter:
 				if len(mv.messages) == 0 {
 					// Let's assume we've never gotten to the state where mv.pos >= len(mv.messages)
 					break
